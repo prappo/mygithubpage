@@ -1,1 +1,69 @@
-Hellow world !
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://www.mattboldt.com/demos/typed-js/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>Prappo Prince</title>
+	<script src="./index_files/jquery.min.js"></script>
+	<script src="typed.custom.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css">
+	<script>
+	$(function(){
+
+		$("#typed").typed({
+			strings: ["Hi !", "I am Prappo Prince", "A front and back end web developer", "Since 2009"],
+			typeSpeed: 60,
+			 backDelay: 500,
+            loop: false,
+            // defaults to false for infinite loop
+            loopCount: false,
+			
+
+      callback: function(){
+        shift();
+      }
+		});
+
+	});
+  function shift(){
+      $(".head-wrap").addClass("shift-text");
+      terminalHeight();
+  }
+
+  function terminalHeight(){
+      var termHeight = $(".terminal-height");
+      var value = termHeight.text();
+      value = parseInt(value);
+      setTimeout(function(){
+          if (value > 10){
+              value = value-1;
+              this.txtValue = value.toString();
+              termHeight.text(this.txtValue);
+              self.terminalHeight();
+          }
+          else{
+              clearTimeout();
+          }
+      }, 10);
+  }
+	</script>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="header">
+	<div class="head-wrap shift-text">
+		<h1 class="h1">Prappo Prince</h1>
+		<div class="text-editor-wrap">
+			<div class="title-bar"><span class="title">prappo@prince<span class="terminal-height"></span></span></div>
+			<div class="text-body">
+				$ <span id="typed"></span><span class="typed-cursor"></span>
+			</div>
+		</div>
+		<span class="tagline"># Web Developer # VFX Artist # Security Researcher</span>
+	</div>
+
+
+
+
+
+</body></html>
